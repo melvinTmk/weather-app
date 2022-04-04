@@ -18,6 +18,7 @@ export default function Form() {
     .then(json => {
         setWeather(json);
         setQuery('');
+        console.log(json);
     })
   }
   
@@ -25,7 +26,6 @@ export default function Form() {
     setQuery(e);
   }
 
-  const err = "<p className='text-white'>Ville non trouvée</p>";
 
   return (
     <div>
@@ -47,6 +47,7 @@ export default function Form() {
             country = {weather.sys.country}
             temp = {Math.round(weather.main.temp)}
             main = {weather.weather[0].main}
+            icon = {weather.weather[0].icon}
           />
         ) : 
         ('')}
